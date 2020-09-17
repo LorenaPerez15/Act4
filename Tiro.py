@@ -5,7 +5,7 @@ from freegames import vector
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
-
+#Da la señal que aparezca la bolita roja cuando se toca la pantalla
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
@@ -21,11 +21,11 @@ def inside(xy):
 def draw():
     "Draw ball and targets."
     clear()
-
+#Dibuja los targets (puntos azules)
     for target in targets:
         goto(target.x, target.y)
         dot(20, 'blue')
-
+#Dibuja la bola (Bolita roja que golpea los targets)
     if inside(ball):
         goto(ball.x, ball.y)
         dot(6, 'red')
@@ -34,6 +34,7 @@ def draw():
 
 def move():
     "Move ball and targets."
+    #Movimiento y velocidad de targets
     if randrange(40) == 0:
         y = randrange(-150, 150)
         target = vector(200, y)
@@ -41,11 +42,11 @@ def move():
 
     for target in targets:
         target.x -= 1
-
+#Movimiento y velocidad de pelotita roja
     if inside(ball):
         speed.y -= 0.35
         ball.move(speed)
-
+#Cuando el punto rojo golpea los targets, estos se eliminan
     dupe = targets.copy()
     targets.clear()
 
