@@ -41,10 +41,10 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 1
+        target.x -= 2
 #Movimiento y velocidad de pelotita roja
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= .50
         ball.move(speed)
 #Cuando el punto rojo golpea los targets, estos se eliminan
     dupe = targets.copy()
